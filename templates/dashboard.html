@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Management</title>
+</head>
+
+<body>
+
+<h2>Add Student</h2>
+
+<form action="/add_student" method="post">
+Name: <input type="text" name="name"><br>
+Class: <input type="text" name="class"><br>
+Email: <input type="text" name="email"><br>
+<button type="submit">Add Student</button>
+</form>
+
+<h2>Student List</h2>
+
+<table border="1">
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Class</th>
+<th>Email</th>
+<th>Action</th>
+</tr>
+
+{% for s in students %}
+<tr>
+<td>{{s.id}}</td>
+<td>{{s.name}}</td>
+<td>{{s.class_name}}</td>
+<td>{{s.email}}</td>
+<td>
+<a href="/delete/{{s.id}}">Delete</a>
+</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
